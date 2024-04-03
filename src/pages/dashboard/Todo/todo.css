@@ -1,0 +1,154 @@
+.todo-form {
+    padding: 30px 15px;
+    /* background-color: rgb(187, 191, 195); */
+    /* background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,106,0.3930614482120973) 0%, rgba(27,169,198,1) 100%); */
+    /* background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(20,82,84,0.3930614482120973) 0%, rgba(21,95,101,1) 9%, rgba(21,101,109,1) 15%, rgba(22,108,118,1) 30%, rgba(23,115,127,1) 38%, rgba(23,121,135,1) 45%, rgba(24,131,149,1) 57%, rgba(24,133,151,1) 71%, rgba(27,169,198,1) 100%); */
+    width: 460px;
+    height: auto;
+    position: relative;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    /* align-content: center; */
+    align-self: center;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    /* border-radius: 20px; */
+}
+
+.todo-title {
+    width: 100%;
+    /* color: rgb(12, 162, 221); */
+    font-weight: 400;
+    font-style: italic;
+    text-transform: capitalize;
+    padding-top: 30px;
+    position: relative;
+    text-align: center;
+    margin: auto;
+
+}
+/* 
+.todo-title::after {
+    content: '';
+    width: 124px;
+    height: 2px;
+    background-color: inherit;
+    position: relative;
+    margin: auto;
+    display: flex;
+    border-radius: 1px;
+    margin-top: -2px;
+} */
+.todo-title::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: rgb(18, 188, 235);
+    position: relative;
+    margin: auto;
+    display: flex;
+    z-index: 1;
+    border-radius: 50%;
+    /* margin-bottom: -30px; */
+    margin-top: auto;
+    margin-bottom: -42px;
+}
+
+.input-container {
+    width: 100%;
+    position: relative;
+    /* height: 50px; */
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 14px;
+}
+
+.input-container>label {
+        opacity: .9;
+    font-weight: 700;
+    font-style: italic;
+    margin: auto;
+    width: 60px;
+}
+
+.input-container>input, select {
+    width: 290px;
+    border: rgb(251, 251, 251);
+    padding: 4px 6px;
+    padding-left: 10px;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.input-container>select {
+    height: auto;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.input-container>input:focus{
+    border: 3px solid rgb(203, 213, 197);
+}
+.input-container>select:focus{
+    border: 1px solid rgb(203, 213, 197);
+}
+.todo-submit-btn {
+    width: 160px;
+    height: 50px;
+    font-weight: bold;
+    padding: 6px 10px;
+  
+    text-transform: uppercase;
+    outline: none;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+@media (max-width: 927px) {
+    .todo-form {
+        width: 350px;
+        height: auto;
+        row-gap: 7px;
+    }
+
+    .input-container {
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        justify-content: safe;
+        row-gap: 2px;
+        padding: 4px 6px;
+        align-items: flex-start;
+    }
+
+    .input-container>input, select {
+        width: 250px;
+        padding: 4px 6px;
+        padding-left: 7px;
+        font-size: .9rem;
+        font-weight: 700;
+    }
+
+    .input-container>label {
+        margin-right: auto;
+        opacity: .8;
+        margin-left: 2px;
+        font-weight: 500;
+        font-style: italic;
+        /* width: 50px; */
+        font-size: .8rem;
+        text-align: start;
+        padding: 3px 0 0 0;
+    }
+}

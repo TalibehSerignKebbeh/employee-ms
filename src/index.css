@@ -1,13 +1,338 @@
-body {
+/* body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  height: 100%;
+  width: 100vw;
+  width:     100%;
+  color: #fff;
+} */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap'); */
+@import url('https://cdn.syncfusion.com/ej2/material.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,400;8..144,500&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+body {
+    margin: 0;
+    padding:0;
+    font-family: "Open Sans", sans-serif;
 }
 
+html, body, .app{
+  height: 100%;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.my-dash-icon{
+  transform: scale(3) !important;
+}
+.not-found-icon{
+  transform: scale(4);
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.content{
+ width: 100vw;
+}
+/* #root{
+  background-color: #3333;
+  background-color: black;
+  min-height: 100vh;
+  min-width: 100vw;
+ margin: 0;
+  padding: 0;
+} */
+
+/* Background color switch styles start */
+    .switch {
+  position: fixed;
+  top: 10px;
+  right:  20px ;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  z-index: 1000;
+}
+
+.switch #darkToggler { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(31, 29, 29);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background: #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #888;
+}
+::-webkit-scrollbar-track:hover{
+  background: #555;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(253, 251, 251);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#darkToggler:checked + .slider {
+  background-color: #9fb2bb;
+}
+
+#darkToggler:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+#darkToggler:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: #fff;
+
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* Background switch styles end */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.title{
+  color: black;
+  font-size: medium;
+}
+.link{
+  color: blueviolet;
+  text-decoration: none;
+  
+}
+.logout-btn{
+  cursor: pointer;
+}
+
+.delete-icon{
+  color: red;
+  background-color: #fff;
+  position: relative;
+}
+
+
+/* singup page styles */
+.personal-infor{
+  width: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  position: relative;
+  height: auto;
+  padding: 20px 50px;
+  background-color: lightblue;
+  margin-top: 20px;
+  
+}
+.personal-infor>.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start ;
+  row-gap: 20px;
+}
+.personal-infor>.title{
+  font-size: 1.6rem;
+  color: dodgerblue;
+  font-weight: 800;
+}
+
+.personal-infor>.name-wrapper>.input-container> input, select{
+  width: 100%;
+
+}
+.personal-infor>.wrapper>.input-container{
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+ 
+}
+.personal-infor>.wrapper>.input-container>label{
+  font-size: 1.3rem;
+  width: 160px;
+}
+.personal-infor>.wrapper>.input-container>input{
+  border: 2px solid rgb(81, 77, 77);
+}
+
+/* Contact information styles */
+
+.contact-infor{
+  width: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  position: relative;
+  height: auto;
+  padding: 20px 50px;
+  background-color: lightblue;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  
+}
+.contact-infor>.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start ;
+  row-gap: 20px;
+}
+.contact-infor>.title{
+  font-size: 1.6rem;
+  color: dodgerblue;
+  font-weight: 800;
+}
+.contact-infor>.name-wrapper>.input-container> input, select{
+  width: 100%;
+
+}
+.contact-infor>.wrapper>.input-container{
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+ 
+}
+.contact-infor>.wrapper>.input-container>label{
+  font-size: 1.3rem;
+  width: 160px;
+}
+.contact-infor>.wrapper>.input-container>input{
+  border: 2px solid rgb(81, 77, 77);
+}
+/* contact sytles end */
+
+/* Other sytles */
+.other-infor{
+  width: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  position: relative;
+  height: auto;
+  padding: 20px 50px;
+  background-color: lightblue;
+  margin-top: 20px;
+  
+}
+.other-infor>.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start ;
+  row-gap: 10px;
+}
+.other-infor>.title{
+  font-size: 1.6rem;
+  color: dodgerblue;
+  font-weight: 800;
+}
+.other-infor>.name-wrapper>.input-container> input, select{
+  width: 100%;
+
+}
+.other-infor>.wrapper>.input-container{
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+ 
+}
+.other-infor>.wrapper>.input-container>label{
+  font-size: 1.3rem;
+  width: 160px;
+}
+.other-infor>.wrapper>.input-container>input{
+  border: 2px solid rgb(81, 77, 77);
+}
+
+/* other styles end */
+
+/* profile uploader */
+.uploader{
+  width: 40px !important;
+  height: 40px !important;
+  color: #555;
+  position: relative;
+  margin: auto;
+  top: 10px;
+}
+
+/* loadder styles */
+.loadder-wrapper{
+  position: fixed;
+  margin: auto;
+  top: 20%;
+  left: auto;
+  right: auto;
+  width: 160px;
+  height: 160px;
+  display: inline-flex;
+
+}
+.loadder{
+  /* width: 130px;
+  height: 130px; */
+  color: rgb(174, 13, 13) !important;
+  /* background-color: rgb(174, 13, 13); */
+  margin: auto;
+  /* transform: scale(1.3) !important; */
+}
+
+/* logout icon */
+.icon-logout{
+  width: 55px;
+  height: 55px;
+  color: white;
+}
+.icon-logout-white{
+  width: 55px;
+  height: 55px;
+  color: darkblue;
+}
+
+
+.tooltip-text{
+  font-size: .9rem;
 }

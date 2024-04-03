@@ -1,0 +1,115 @@
+
+.input-select{
+  padding: 4px 6px;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1rem;
+}
+.leave-label{
+  font-size: 1rem;
+  margin-bottom: -3px;
+}
+.emptyIcon{
+  transform: scale(7);
+  position: relative;
+  margin: auto;
+}
+.leave-wrapper{
+    /* background-color: #333; */
+    min-height: 100vh;
+    height: 100%;
+    min-width: 100vw;
+    width: auto;
+    margin: 0;
+    position: relative;
+
+}
+.leave-form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(181, 191, 191); */
+    padding: 20px 5px;
+    /* margin-top: 100px; */
+    margin: auto;
+    margin-top: 7px;
+    height: auto;
+    width: auto;
+    /* row-gap: 2px; */
+}
+.input-container-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: 100%;
+    margin: auto;
+}
+.input-container-wrapper input,select{
+  border:  1px solid rgb(86, 81, 81);
+}
+.input-container-wrapper>select{
+  width: auto;
+    height: 55px;
+
+}
+.leave-form>.leave-input-container{
+    width: 300px;
+    margin: auto;
+    position: relative;
+}
+.leave-form>.leave-input-container>input{
+    width: 100%;
+    height: input-container-wrapper;
+    margin: auto;
+    position: relative;
+}
+.leave-form>.leave-input-container>label{
+  color: rgba(23, 22, 22, 0.829);
+  font-size: 1rem;
+  /* width: 100px; */
+  width: 100%;
+
+}
+.form-option{
+  padding: 8px 13px;
+  font-size: .9rem;
+  font-style: italic;
+  font-weight: normal;
+}
+.leave-submit-login{
+  background-color: rgb(41, 134, 227);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 120px;
+  opacity: 0.9;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+
+  /* margin: auto; */
+}
+
+.submit-login:hover {
+  opacity: 1;
+}
+.loading-btn{
+  background-color: rgb(73, 148, 222);
+   /* background-color: rgb(153, 160, 167); */
+  /* color: white; */
+  padding: 10px;
+  border: none;
+  cursor: none;
+  width: 150px;
+  margin-top: 10px;
+  /* margin-top: 20px; */
+}
+

@@ -1,0 +1,9 @@
+
+.sidebar-link svg,path{
+    transform: scale(1.1, 1.4);
+}
+
+.sidebar-link-active svg,path{
+    transform: scale(1.1, 1.4);
+    font-size: 4rem;
+}

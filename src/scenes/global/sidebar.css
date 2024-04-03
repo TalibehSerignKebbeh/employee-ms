@@ -1,0 +1,46 @@
+.sidebar-wrapper{
+    position: relative;
+}
+
+.sidebar-link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px;
+    width: auto;
+    overflow-x: hidden;
+    font-size: inherit;
+    color: inherit;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.sidebar-link-active{
+     display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px;
+    width: auto;
+    font-size: inherit;
+    color: inherit;
+    text-decoration: none;
+    text-transform: capitalize;
+    overflow-x: hidden;
+}
+
+
+.logout-icon{
+    margin: auto;
+  
+}
+@media (max-width: 927px) {
+    .sidebar-wrapper{
+        position: absolute !important;
+        z-index: 10 !important;
+        /* margin-left: -260px; */
+    }
+    .toggler{
+        position: absolute !important;
+        margin-left: 140px !important;
+    }
+    
+}

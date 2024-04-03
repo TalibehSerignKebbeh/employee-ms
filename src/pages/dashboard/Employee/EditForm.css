@@ -1,0 +1,109 @@
+/* .edit-employee-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+} */
+/* .wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 650px;
+    row-gap: 10px;
+    column-gap: 15px;
+} */
+.links-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 4px;
+    row-gap: 4px;
+    justify-content: space-evenly;
+}
+.input-wrapper{
+    width: auto;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.input-wrapper>label{
+    text-align: start;
+    font-weight: 700;
+    font: 1.1rem;
+    opacity: .9;
+    width: 90px;
+    display: inline-flex;
+    align-items: center;
+}
+.input-wrapper>input{
+    padding: 5px 8px;
+    border-radius: 5px;
+    border-width: 2px;
+    border: 2px solid rgb(139, 197, 178);
+    min-width: 250px;
+    color: inherit;
+}
+#roles{
+    height: auto;
+    width: 100%;
+    border-width: 2px;
+    border-color: rgb(30, 31, 31);
+    
+}
+.submit-btn{
+    width: 140px;
+    background-color: rgb(9, 146, 146);
+    color: white;
+    font-weight: 800;
+    font-style: italic;
+    margin-top: 20px;
+}
+.sub-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 20px;
+}
+.sub-wrapper>.sub-input-container{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+.sub-wrapper>.sub-input-container>label{
+    font-size: 1.3rem;
+    font-weight: 700;
+    font: optional;
+    padding: 4px 7px;
+    opacity: .8;
+}
+.sub-wrapper>.sub-input-container>input{
+    width: 20px;
+    height: 20px;
+}
+.delete-message{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-style: italic;
+}
+.delete-message>span{
+    font-size: 1.3rem;
+    color: red;
+    font-weight: bold;
+    /* text-decoration: underline; */
+    font-style: normal;
+}
+@media (max-screen: 920px) {
+    /* .edit-employee-form{
+        display: flex;
+        flex-direction: column;
+        background-color: cadetblue;
+    } */
+    
+}

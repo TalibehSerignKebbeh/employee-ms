@@ -1,0 +1,28 @@
+.flex-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh; /* Set the desired height of the container */
+      width: 100vw;
+    }
+
+    .flex-item {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .top-child {
+      order: -1; /* Moves the first child to the top */
+      flex-shrink: 0;
+      background-color: lightblue;
+    }
+
+    .bottom-child {
+      order: 1; /* Moves the last child to the bottom */
+      background-color: lightgreen;
+      flex-shrink: 0;
+    }
+
+    .middle-child {
+      order: 0; /* Keeps the middle child in the default order */
+      background-color: lightyellow;
+    }
