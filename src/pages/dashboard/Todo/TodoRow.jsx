@@ -74,18 +74,14 @@ export default function TodoRow({ todo, employees, refetchTodo }) {
                 </TableCell>
                 <TableCell align='left'
                     sx={{ fontSize: '1rem' }}>
-                    {/* {todo?.name} */}
-                    <Link style={{textDecoration:'none'}}
-                        to={`/dashboard/todo/${todo?._id}/chat`}
-                        className='list-none text-inherit
-                         text-xl'
-                    >{todo?.name}</Link> 
+                    {todo?.name}
+                    
                 </TableCell>
                 
                 <TableCell align='left'
                    sx={{fontSize:'1rem'}}
                 >
-                    {todo?.length? format(toDate(parseISO(todo?.dateLine)), 'MMMM dd yyyy') : ''}
+                    {todo?.dateLine?.length? format(toDate(parseISO(todo?.dateLine)), 'MMMM dd yyyy') : ''}
                 </TableCell>
                
                 <TableCell align='left'>
