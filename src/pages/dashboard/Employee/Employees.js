@@ -71,7 +71,7 @@ const Employees = ({ selected, setSelected }) => {
                                 error?.data?.message}
                     </p>
                 </Box>}
-            {empLoading ? <Loaddder /> :
+            {empLoading ? <Loaddder loadingText={'loading employees'}/> :
                 <>
                     <h3 className={`${(isDark) ? 'text-white' : 'text-gray-800'} px-3 text-start min-w-full w-full 
             my-4 mt-8

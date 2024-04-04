@@ -51,7 +51,7 @@ const TodosList = () => {
             >
                 Todos Page
             </h3>
-            {todoLoading ? <Loaddder /> :
+            {todoLoading ? <Loaddder loadingText={'loading todos'}/> :
                 <>
                      <div className={`my-3 rounded-lg ml-1 `}>
                                 <div className='flex justify-end'>

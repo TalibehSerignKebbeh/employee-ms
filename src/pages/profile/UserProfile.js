@@ -12,6 +12,7 @@ import parseISO from 'date-fns/parseISO';
 import EmpInputContainer from '../dashboard/Employee/EmpInputContainer';
 import { useGetEmployeeProfileQuery } from '../../features/Employee/EmployeeApiSlice';
 import SuccessComponent from '../../components/RequestStatus/SuccessComponent';
+import Loaddder from '../../components/Loaddder';
 
 const UserProfile = ({ selected, setSelected }) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!#@$&*?]).{5,}$/;
@@ -109,7 +110,7 @@ const UserProfile = ({ selected, setSelected }) => {
     }
 
     if (isProfileLoading) {
-        return <p>Loading ....</p>
+        return <Loaddder loadingText={'loading profile information'}/>
     }
 
 

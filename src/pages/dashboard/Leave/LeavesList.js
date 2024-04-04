@@ -38,7 +38,7 @@ const LeavesList = ({ selected, setSelected }) => {
 
     return (
         <Box maxWidth={'auto'} width="100%" margin="auto" py={3}  >
-            {isLoading ? <Loaddder />
+            {isLoading ? <Loaddder loadingText={'loading leaves data'}/>
                 : isSuccess ?
                     <div>
                         <h3 className={`${(isDark) ? 'text-white' : 'text-gray-800'} 
