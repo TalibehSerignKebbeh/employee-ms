@@ -83,7 +83,7 @@ export default function TodoRow({ todo, employees, refetchTodo }) {
                 <TableCell align='left'
                    sx={{fontSize:'1rem'}}
                 >
-                    {(todo?.dateLine && todo?.dateLine?.length)? format(toDate(parseISO(todo?.dateLine)), 'MMMM dd yyyy') : ''}
+                    {(todo?.dateLine && todo?.dateLine?.length)? format(parseISO(todo?.dateLine), 'MMMM dd yyyy') : ''}
                 </TableCell>
                
                 <TableCell align='left'>
