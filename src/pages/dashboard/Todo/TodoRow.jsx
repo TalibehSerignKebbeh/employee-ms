@@ -174,7 +174,7 @@ export default function TodoRow({ todo, employees, refetchTodo }) {
                                 justifyContent:'flex-start', alignItems:'baseline'}}>
                                     <h4 className={`text-[10px] `}>Created Date</h4>
                                     <h2 className={`text-sm font-normal -mt-2`}>
-                                      {format(toDate(parseISO(todo?.createdAt)), 'MMMM dd yyyy')}
+                                      {todo?.createdAt?.length? format(toDate(parseISO(todo?.createdAt)), 'MMMM dd yyyy') : ''}
                                     </h2>
                                 </Box>
                                 <Box sx={{display:'flex', rowGap:'1px', flexDirection:'column',
@@ -188,7 +188,7 @@ export default function TodoRow({ todo, employees, refetchTodo }) {
                                 justifyContent:'flex-start', alignItems:'baseline'}}>
                                     <h4 className={`text-[10px] font-light`}>DeadLine</h4>
                                     <h2 className={`text-sm font-normal -mt-2`}>
-                                      {format(toDate(parseISO(todo?.dateLine)), 'MMMM dd yyyy')}
+                                      {todo?.dateLine?.length? format(toDate(parseISO(todo?.dateLine)), 'MMMM dd yyyy') : ''}
                                     </h2>
                                 </Box>
                             </Box>
