@@ -15,7 +15,7 @@ export default function EmpRow({ empData }) {
     // const { refetch } = useGetEmployeesQuery()
     const [employee, setemployee] = useState({
         ...empData,
-        dob: empData?.dob?.length? format(parseISO(empData?.dob), 'yyyy-MM-dd') : '',
+        dob: (empData?.dob && empData?.dob?.length)? format(parseISO(empData?.dob), 'yyyy-MM-dd') : '',
     });
     const [showDelete, setshowDelete] = useState(false);
     const [showEditModal, setshowEditModal] = useState(false);

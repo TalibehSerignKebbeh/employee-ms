@@ -53,9 +53,7 @@ const TodosList = () => {
             </h3>
             {todoLoading ? <Loaddder /> :
                 <>
-                    {data?.todos?.length ?
-                        <div className='mb-3'>
-                            <div className={`my-3 rounded-lg ml-1 `}>
+                     <div className={`my-3 rounded-lg ml-1 `}>
                                 <div className='flex justify-end'>
                                    <button
                                     className={`px-4 py-2 rounded-md 
@@ -72,7 +70,11 @@ const TodosList = () => {
                                         <Todo />
                                     </div>
                                 </Collapse>
-                            </div>
+                    </div>
+                    
+                    {data?.todos?.length ?
+                        <div className='mb-3'>
+                           
                             <TableContainer component={Paper}
                                 sx={{
                                     width: 'auto', mt: '10px',
