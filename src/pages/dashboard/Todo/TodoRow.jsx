@@ -26,6 +26,8 @@ import EditDialog from './EditDialog'
 
 
 export default function TodoRow({ todo, employees, refetchTodo }) {
+
+    console.log(todo);
     const isLight = useTheme().palette.mode === 'light'
 
     let id = todo?._id
