@@ -7,6 +7,7 @@ import { currentToken } from "./authSlice";
 
 import React from 'react';
 import {  useRefreshTokenMutation } from "./authApiSlice";
+import Loaddder from "../../components/Loaddder";
 
 const PersistLogin = () => {
     const [persist] = usePersist()
@@ -45,13 +46,19 @@ const PersistLogin = () => {
         content = <Outlet />
     } else if (isLoading) { // persist yes token no
         console.log('loading...');
-        content = <p>Loading...</p>
+        content = <Loaddder loadingText={'loading page\'s hmtl content'} />
     } else if (isError) {// persist: yes, token no
         console.log('error');
-        content = (<p className="errmsg">
-            {`${error?.data?.message} - `}
-            <Link to={'/'}>Please Login again</Link>
-        </p>)
+        content = (<div className="w-full h-full flex items-start justify-center">
+    <div className="p-2 sm:p-20 md:p-28 py-40 bg-gradient-to-br from-rose-300 via-rose-100 to-rose-500
+             rounded-md">
+                <p className="text-xl sm:text-xl md:text-3xl">
+            {error?.data?.message}
+            </p>
+      <Link to={'/'} className='text-lg'
+      >Please Login again</Link>
+                </div>
+        </div>)
     } else if (isSuccess && trueSucess) {  // persist yes , token: yes
         console.log("Success");
         content = <Outlet />

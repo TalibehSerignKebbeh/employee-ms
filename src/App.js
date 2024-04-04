@@ -17,6 +17,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import UserProfile from './pages/profile/UserProfile';
 import Chat from './pages/dashboard/Todo/Chat/Chat';
 import UseAuth from './hooks/UseAuth';
+import Loaddder from './components/Loaddder';
 
 const Login = lazy(() => import('./features/auth/Login'));
 
@@ -82,7 +83,7 @@ function App() {
                   />} /> */}
                   {/* <Route index path='/' element={<NewsRoom />} /> */}
                   <Route index path='/'
-                    element={<Suspense fallback={<div><p>Loading basic html</p></div>}>
+                    element={<Suspense fallback={<div><Loaddder loadingText={'loading page\'s html '}/> </div>}>
                       <Login /> </Suspense>}
                   />
                  

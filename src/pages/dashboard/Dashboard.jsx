@@ -6,7 +6,7 @@ import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import Box from '@mui/material/Box'
-import {  useTheme } from '@mui/material/styles'
+import { useTheme } from '@mui/material/styles'
 import React, { useEffect, useState } from 'react'
 import { apiInstance } from '../../api'
 import UseAuth from '../../hooks/UseAuth'
@@ -16,14 +16,15 @@ import EmployeeStatistics from './Employee/EmployeeStatistics'
 import LeaveStatistic from './Leave/LeaveStatistic'
 import TodoStatistics from './Todo/TodoStatistics'
 import SuccessComponent from '../../components/RequestStatus/SuccessComponent'
+import { Link } from 'react-router-dom'
 
-export default function Dashboard({selected, setSelected}) {
+export default function Dashboard({ selected, setSelected }) {
   const theme = useTheme()
   const isDark = theme.palette.mode === 'dark'
   const [loadingData, setloadingData] = useState(false);
   const [isError, setisError] = useState(false);
   const [employees, setemployees] = useState([]);
-    const [statisticsData, setstatisticsData] = useState(null);
+  const [statisticsData, setstatisticsData] = useState(null);
   const { token, isAdmin, } = UseAuth()
 
   useEffect(() => {
@@ -31,15 +32,16 @@ export default function Dashboard({selected, setSelected}) {
     if (!token) return new AbortController().abort()
     const fetchData = async () => {
       setloadingData(true)
+
       await apiInstance(token).get(`/dashboard_stats`)
         .then(res => {
           // console.log(res?.data);
           setstatisticsData(res?.data)
           console.log(res?.data);
-          }).catch((err) => {
+        }).catch((err) => {
           console.log(err);
-          }).finally(() => {
-          setloadingData(false)
+        }).finally(() => {
+            setloadingData(false)
         })
     }
     fetchData()
@@ -75,7 +77,9 @@ export default function Dashboard({selected, setSelected}) {
   }, [])
 
   return (
-    <Box width="100%" textAlign={'center'} margin="auto">
+    <Box width="100%" textAlign={'center'} margin="auto"
+      sx={{ position: 'relative' }}
+    >
       {(loadingData) ? <Loaddder /> :
         isError ?
           <p className='text-lg font-display 
@@ -90,10 +94,10 @@ export default function Dashboard({selected, setSelected}) {
             </h3>
             {isAdmin ?
               <EmployeeStatistics data={statisticsData} /> : null}
-            <TodoStatistics data={statisticsData}/>
-             <LeaveStatistic data={statisticsData}/>
-            <Box mt="20px"  height={'auto'} width="100%">
-              {employees?.length? <Box m="10px" className="shadow lg:w-1/2 md:h-3/5 w-full" >
+            <TodoStatistics data={statisticsData} />
+            <LeaveStatistic data={statisticsData} />
+            <Box mt="20px" height={'auto'} width="100%">
+              {employees?.length ? <Box m="10px" className="shadow lg:w-1/2 md:h-3/5 w-full" >
                 <h3 className={`${(isDark) ? 'text-white' : 'text-gray-400'} text-sm font-semibold `}>
                   Recently added employees</h3>
                 <TableContainer component={Paper} className="shadow">
@@ -120,7 +124,7 @@ export default function Dashboard({selected, setSelected}) {
 
                   </Table>
                 </TableContainer>
-              </Box>: null}
+              </Box> : null}
 
             </Box>
           </>
