@@ -1,41 +1,4 @@
 
-.login-form{
-    /* width: 450px; */
-    position: relative;
-    margin: auto;
-    align-self: center;
-    /* background-color: rgb(163, 235, 237); */
-    /* background-color: #292e39; */
-    padding: 20px 10px;
-    margin: auto;
-    /* margin-top: 50px; */
-    /* border-radius: 30px; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    /* transform: translate(-50%, -50%); */
-    
-    /* box-shadow: ; */
-}
-.login-form>.title{
-  color: rgb(19, 126, 234);
-  font-size: 1.5rem;
-  padding: 5px ;
-  /* margin-top: -10px; */
-  font-weight: bold;
-  font-style: italic;
-  margin-bottom: 20px;
-}
-
-.login-form-input-container {
-  width: 330px;
-  margin: auto;
-  margin-bottom: 15px;
-  position: relative;
-  height: 50px;
-}
 
 .login-icon {
   color: rgb(17, 110, 218);
@@ -49,24 +12,9 @@
   z-index: 2;
 }
 
-.input-field {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding: 15px 33px;
-  padding-left: 27px;
-  outline: none;
-  border: 2px solid rgb(91, 91, 92);
-  border-radius: 8px;
-  font-size: 1rem;
-  color: #292e39;
-}
 
 
 
-.input-field:focus {
-  border: 2px solid rgb(54, 126, 199);
-}
 .password-toggle{
   width: 20px;
   height: 20px;
@@ -87,46 +35,15 @@
   font-size: 1.2rem;
   color: rgb(20, 179, 232);
 }
-/* Set a style for the submit button */
-.submit-login {
-  background-color: dodgerblue;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-  width: 150px;
-  opacity: 0.8;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 10px;
-}
 
-.submit-login:hover {
-  opacity: 1;
-}
-.loading-btn{
-   background-color: rgb(153, 160, 167);
-  /* color: white; */
-  padding: 10px;
-  border: none;
-  cursor: none;
-  width: 150px;
-  /* height: ; */
-  border-radius: 2px;
-}
+
+
 
 .error-message{
   color: rgb(173, 24, 24);
   padding: 4px 8px;
 }
-.persist-container{
-  padding: 6px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  /* color: #fff; */
-  font-size: 1.1rem;
-}
+
 .persist-field{
   width: 25px;
   height: 20px;
@@ -134,30 +51,12 @@
 }
 
 @media (max-width: 950px) {
-  .login-form{
-   width: 300px;
-    /* max-width: 90%; */
-    margin: auto;
-    text-align: center;
-  }
-.login-form-input-container {
-  width: 230px;
-}
+
 
 .password-toggle{
   transform: scale(0.9);
 }
 
-.input-field {
-  width: 100%;
-  width: 200px;
-  /* height: 100%; */
-  height: 45px;
-  position: relative;
-  padding: 4px 0;
-  padding-left: 27px;
-  font-size: small;
-}
 .login-icon
  {
   width: 20px;
@@ -170,12 +69,7 @@
   margin-bottom: 6px;
 
 }
-.persist-container{
-  margin: auto;
-  margin-right: auto;
-  padding-top: 10px;
-  padding-bottom: 15px;
-}
+
 .login-form-links{
   font-size: .8rem;
 }

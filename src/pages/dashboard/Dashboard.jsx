@@ -15,8 +15,7 @@ import Loaddder from '../../components/Loaddder'
 import EmployeeStatistics from './Employee/EmployeeStatistics'
 import LeaveStatistic from './Leave/LeaveStatistic'
 import TodoStatistics from './Todo/TodoStatistics'
-import SuccessComponent from '../../components/RequestStatus/SuccessComponent'
-import { Link } from 'react-router-dom'
+
 
 export default function Dashboard({ selected, setSelected }) {
   const theme = useTheme()
