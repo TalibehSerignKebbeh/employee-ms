@@ -51,14 +51,14 @@ activeMenu, setactiveMeu}) {
             minHeight="100vh" zIndex={10}
         >
             
-                <Typography
+                {/* <Typography
                     sx={{
                         color: '#6E88D4',
                         textAlign:'center',
                         padding: '4px',my:'auto',mb:'-10px',
                         fontSize: '1.1rem', mx: 'auto',
                     }}>Dashboard Navigation
-                </Typography>
+                </Typography> */}
           
             <hr className={`${isDark? 'bg-slate-200':'bg-slate-800'}`}/>
             {/* sub profile container */}
@@ -91,6 +91,7 @@ activeMenu, setactiveMeu}) {
                         title={'profile'} selected={selected} setSelected={setSelected} 
                     />
                 </Box>
+            <hr className={`${isDark? 'bg-slate-200':'bg-slate-800 my-2'}`}/>
                 
               
                 <Tooltip title="Logout">

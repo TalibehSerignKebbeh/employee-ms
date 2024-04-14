@@ -2,12 +2,14 @@ import React, { useContext,  } from 'react'
 import DarkModeOutlined from '@mui/icons-material/DarkModeOutlined';
 import  LightModeOutlined from '@mui/icons-material/LightModeOutlined';
 import  MenuOutlined from '@mui/icons-material/MenuOutlined';
+import  CloseMenu from '@mui/icons-material/CloseOutlined';
 import './mytopbar.css'
 import { ColorModeContext } from '../../theme';
 import { useTheme } from '@mui/material/styles';
 import IconButton  from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import UseAuth from '../../hooks/UseAuth';
+import  Tooltip  from '@mui/material/Tooltip';
 
 
 export default function MyTopBar({activeMenu, setactiveMenu}) {
@@ -33,11 +35,23 @@ export default function MyTopBar({activeMenu, setactiveMenu}) {
                             
                         }}
                         onClick={() => setactiveMenu(!activeMenu)}>
+                    {activeMenu ?
+                <Tooltip title="close side menu">
+                        <CloseMenu sx={{
+                            scale: 3,
+                            width: '35px', height: '35px',
+                            zIndex:200
+                            }} />
+                            </Tooltip>
+                        :
+                <Tooltip title="open side menu">
                         <MenuOutlined sx={{
                             scale: 3,
                             width: '35px', height: '35px',
                             zIndex:200
-                        }} />
+                            }} />
+                            </Tooltip>
+                        }
                     </IconButton>
             </div> 
             : null
@@ -47,6 +61,7 @@ export default function MyTopBar({activeMenu, setactiveMenu}) {
                 display: 'flex', alignItems: 'center',
                 marginLeft: 'auto', marginRight: '10px'
             }}>
+                <Tooltip title="color mode toggler">
                 <button style={{ marginRight: '3px' }} 
                     className={`${(dark) ? 'bg-gray-300' : 'bg-gray-600'} 
                     w-12 h-12 inline-flex rounded-3xl
@@ -58,7 +73,7 @@ export default function MyTopBar({activeMenu, setactiveMenu}) {
                         <DarkModeOutlined className='m-auto' />
                     }
                 </button>
-                
+                </Tooltip>
             </div>
         </Box>
 

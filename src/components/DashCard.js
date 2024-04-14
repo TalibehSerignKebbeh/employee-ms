@@ -24,10 +24,10 @@ const DashCard = ({ name, value, icon }) => {
           after:w-20 lg:after:ml-3 mr-[2px] after:ml-2
           after:h-px after:m-auto after:absolute`}>
         <p className={`${(dark) ? 'text-white' : 'text-black'} 
-            font-body font-medium my-auto px-1 md:ml-0 mx-auto `}
+            font-body font-medium my-auto px-1 md:ml-0 mx-auto text-xl `}
             >{name}</p>
         <p className={`${(dark) ? 'text-white' : 'text-black'} 
-        font-body font-medium my-auto px-1 md:ml-0 ml-4 `}>
+        font-body font-medium my-auto px-1 md:ml-0 ml-4 text-xl `}>
           {value || 0}</p>
           </div>
 

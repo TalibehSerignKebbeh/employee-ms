@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Paper from '@mui/material/Paper'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -18,6 +18,8 @@ import LeaveRow from './LeaveRow';
 import Leave from './Leave';
 import PaginateComp from '../../../components/Pagination/Pagination';
 import UseAuth from '../../../hooks/UseAuth';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap'
 
 const LeavesList = ({ selected, setSelected }) => {
 
@@ -32,15 +34,24 @@ const LeavesList = ({ selected, setSelected }) => {
     const { data: leavesData, isLoading,
         isSuccess, isError, error } = useGetLeavesQuery(page, pageSize)
 
+      const containerRef = useRef(null)
+  useGSAP(() => {
+    gsap.fromTo('.leavesInforWrapper', {
+      y: -1000,
+      scale: 0.3
+    }, { y: 0, scale: 1 })
+
+  }, { scope: containerRef.current })
+
     useEffect(() => {
         setSelected("leaves")
     }, [setSelected]);
 
     return (
-        <Box maxWidth={'auto'} width="100%" margin="auto" py={3}  >
+        <Box ref={containerRef} maxWidth={'auto'} width="100%" margin="auto" py={3}  >
             {isLoading ? <Loaddder loadingText={'loading leaves data'}/>
                 : isSuccess ?
-                    <div>
+                    <div className='leavesInforWrapper'>
                         <h3 className={`${(isDark) ? 'text-white' : 'text-gray-800'} 
                              px-3 text-start min-w-full w-full 
                              my-4 mt-8 after:block after:p-0

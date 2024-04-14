@@ -1,4 +1,4 @@
-import React, { useEffect, useState, } from 'react';
+import React, { useEffect, useRef, useState, } from 'react';
 import { useGetEmployeesQuery } from '../../../features/Employee/EmployeeApiSlice';
 import { roles } from '../../../config/Roles';
 import Loaddder from '../../../components/Loaddder';
@@ -17,7 +17,8 @@ import UseAuth from '../../../hooks/UseAuth';
 import AddModal from './ActionFiles/AddModal';
 import EmpRow from './EmpRow';
 import { Tooltip } from '@mui/material';
-
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap'
 
 const Employees = ({ selected, setSelected }) => {
     const theme = useTheme()
@@ -34,6 +35,15 @@ const Employees = ({ selected, setSelected }) => {
 
         })
 
+      const containerRef = useRef(null)
+  useGSAP(() => {
+    gsap.fromTo('.employeesPageDataWrapper', {
+      y: -1000,
+      scale: 0.3
+    }, { y: 0, scale: 1 })
+
+  }, { scope: containerRef.current })
+
 
     useEffect(() => {
         setSelected("employees")
@@ -43,7 +53,7 @@ const Employees = ({ selected, setSelected }) => {
     }, [setSelected]);
 
     return (
-        <Box maxWidth={'1200px'} width="100%" margin={'auto'}
+        <Box ref={containerRef} maxWidth={'1200px'} width="100%" margin={'auto'}
         >
             {isError &&
                 <Box
@@ -72,7 +82,7 @@ const Employees = ({ selected, setSelected }) => {
                     </p>
                 </Box>}
             {empLoading ? <Loaddder loadingText={'loading employees'}/> :
-                <>
+                <div className='employeesPageDataWrapper'>
                     <h3 className={`${(isDark) ? 'text-white' : 'text-gray-800'} px-3 text-start min-w-full w-full 
             my-4 mt-8
             after:block after:p-0 after:m-auto after:w-full after:h-px after:bg-red-400 `}
@@ -163,7 +173,7 @@ const Employees = ({ selected, setSelected }) => {
                          color: (theme) => theme.palette.mode === 'dark' ? '#fff' : '#fff'
                  } }}
             /> */}
-                </>
+                </div>
             }
 
         </Box>

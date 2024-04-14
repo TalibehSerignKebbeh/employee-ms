@@ -6,7 +6,8 @@ import LeaveInfor from './LeaveInfor';
 
 const EmployeeEditForm = ({ employee, handleReset,
     setemployee, isDark = false, isLoading,
-submitDataFunction, register, getValues, errors}) => {
+    submitDataFunction, register, getValues, errors,
+isDirty}) => {
     
     return (
         <form onSubmit={submitDataFunction}
@@ -187,21 +188,14 @@ submitDataFunction, register, getValues, errors}) => {
                              flex justify-end 2xl:gap-16 xl:gap-12
                             lg:gap-12 md:gap-10 sm:gap-5 gap-4 mt-10'>
                 <button type='submit'
-                    disabled={isLoading}
+                    disabled={isLoading || !isDirty}
                     className='text-center  py-[10px] rounded
                             bg-orange-600 md:text-xl text-lg text-white
                              min-w-[70%] sm:min-w-[400px]'
                 >
                     {isLoading ? 'loading...' : 'Submit'}
                 </button>
-                {/* <button type='reset'
-                    disabled={isLoading}
-                    className='md:px-16 sm:px-12 px-10 py-[10px]
-                                     rounded bg-slate-400 md:text-xl 
-                                     text-lg text-white
-                                         '>
-                    reset
-                </button> */}
+               
             </div>
 
         </form>

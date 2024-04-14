@@ -7,7 +7,7 @@ import TableCell from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import Box from '@mui/material/Box'
 import { useTheme } from '@mui/material/styles'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { apiInstance } from '../../api'
 import UseAuth from '../../hooks/UseAuth'
 import UserTable from '../../components/TableHeads/UserTable'
@@ -15,8 +15,8 @@ import Loaddder from '../../components/Loaddder'
 import EmployeeStatistics from './Employee/EmployeeStatistics'
 import LeaveStatistic from './Leave/LeaveStatistic'
 import TodoStatistics from './Todo/TodoStatistics'
-
-
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 export default function Dashboard({ selected, setSelected }) {
   const theme = useTheme()
   const isDark = theme.palette.mode === 'dark'
@@ -25,6 +25,16 @@ export default function Dashboard({ selected, setSelected }) {
   const [employees, setemployees] = useState([]);
   const [statisticsData, setstatisticsData] = useState(null);
   const { token, isAdmin, } = UseAuth()
+  
+  const containerRef = useRef(null)
+  useGSAP(() => {
+    gsap.fromTo('.dashboardInforWrapper', {
+      y: -1000,
+      scale: 0.3
+    }, { y: 0, scale: 1 })
+
+  }, { scope: containerRef.current })
+
 
   useEffect(() => {
     setSelected("dashboard")
@@ -40,7 +50,7 @@ export default function Dashboard({ selected, setSelected }) {
         }).catch((err) => {
           console.log(err);
         }).finally(() => {
-            setloadingData(false)
+          setloadingData(false)
         })
     }
     fetchData()
@@ -76,7 +86,7 @@ export default function Dashboard({ selected, setSelected }) {
   }, [])
 
   return (
-    <Box width="100%" textAlign={'center'} margin="auto"
+    <Box ref={containerRef} width="100%" textAlign={'center'} margin="auto"
       sx={{ position: 'relative' }}
     >
       {(loadingData) ? <Loaddder /> :
@@ -85,9 +95,11 @@ export default function Dashboard({ selected, setSelected }) {
           my-4 max-w-full  font-bold text-italic text-center px-2'>
             An Error! ocurred while fetching data please check your console for more details</p>
           :
-          <>
-            <h3 className={`${(isDark) ? 'text-white' : 'text-gray-800'} px-3 mt-1 text-start min-w-full w-full 
-            after:block after:p-0 after:m-auto after:w-full after:h-px after:bg-red-400 `}
+          <div className='dashboardInforWrapper'>
+            <h3 className={`${(isDark) ? 'text-white' : 'text-gray-800'} 
+            px-3 mt-1 text-start min-w-full w-full 
+            after:block after:p-0 after:m-auto after:w-full after:h-px after:bg-red-400
+            text-2xl sm:text-4xl md:text-5xl`}
             >
               Dashboard
             </h3>
@@ -126,7 +138,7 @@ export default function Dashboard({ selected, setSelected }) {
               </Box> : null}
 
             </Box>
-          </>
+          </div>
 
       }
     </Box>

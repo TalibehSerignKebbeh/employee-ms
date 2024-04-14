@@ -25,7 +25,7 @@ const Login = lazy(() => import('./features/auth/Login'));
 
 function App() {
   const [theme, colorMode] = useMode()
-  const { token} = UseAuth()
+  const { token } = UseAuth()
   const [selected, setSelected] = useState("dashboard");
   const [activeMenu, setactiveMenu] = useState(false);
   const socket = io('http://localhost:4000',
@@ -33,7 +33,7 @@ function App() {
       // host: 'http://localhost:4000',
       withCredentials: true,
       autoConnect: false,
-      auth:{token: token},
+      auth: { token: token },
       reconnectionAttempts: 4,
       reconnectionDelay: 2000,
       retries: 3,
@@ -41,7 +41,7 @@ function App() {
   // const [isSidebar, setIsSidebar] = useState(true);
   // /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i    email regex
   //  npx update-browserslist-db@latest
-//pids = 11272, 11272 11272
+  //pids = 11272, 11272 11272
   useEffect(() => {
     if (token) {
       socket.connect()
@@ -56,9 +56,9 @@ function App() {
     }
     // socket.io.emit()
     return () => {
-       socket.disconnect()
+      socket.disconnect()
     };
-  }, [socket,token ]);
+  }, [socket, token]);
 
 
   return (
@@ -78,25 +78,27 @@ function App() {
                   setactiveMenu={setactiveMenu}
                 />
                 <Routes>
-                  {/* <Route index path='/' element={<SampleChat 
-                    socket={socket}
-                  />} /> */}
-                  {/* <Route index path='/' element={<NewsRoom />} /> */}
+
                   <Route index path='/'
-                    element={<Suspense fallback={<div><Loaddder loadingText={'loading page\'s html '}/> </div>}>
+                    element={<Suspense fallback={<div><Loaddder loadingText={'loading page\'s html '} /> </div>}>
                       <Login /> </Suspense>}
                   />
-                 
+
                   <Route element={<PersistLogin />}>
                     <Route element={<RequireAuth allowedRoles={[...Object.values(roles), "doctor"]} />}>
                       <Route path='dashboard' >
-                        <Route index element={<Dashboard
-                          selected={selected} setSelected={setSelected} />} />
-                        
+                        <Route index element={
+                          <Suspense
+                            fallback={<div><Loaddder loadingText={'loading dashboard\'s html '} /> </div>}>
+                            <Dashboard
+                              selected={selected} setSelected={setSelected} />
+                          </Suspense>
+                        } />
+
                         <Route path='profile' element={<UserProfile
                           selected={selected} setSelected={setSelected} />} />
                         <Route element={<RequireAuth allowedRoles={['admin', 'ceo']} />}>
-                          
+
                           <Route path='employees'  >
                             <Route index element={<Employees
                               selected={selected} setSelected={setSelected} />} />
@@ -117,7 +119,7 @@ function App() {
                           <Route path=':id/chat'
                             element={<Chat socket={socket} />} />
                         </Route>
-                        
+
                       </Route>
 
                     </Route>

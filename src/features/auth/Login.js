@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Lock from '@mui/icons-material/Lock'
 import AccountBox from '@mui/icons-material/AccountBox'
 import CircularProgress from '@mui/material/CircularProgress';
@@ -12,9 +12,12 @@ import UsePersist from '../../hooks/usePersist';
 import { useTheme } from '@mui/material';
 import { tokens } from '../../theme';
 import LoginBanner from '../../data/product9.jpg'
+import  gsap from 'gsap'
+import {useGSAP} from '@gsap/react'
 
 const Login = () => {
 
+    const containerRef = useRef(null)
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
     const isDark = theme.palette.mode === 'dark';
@@ -67,36 +70,46 @@ const Login = () => {
         }
     }
 
+    
+    useGSAP(() => {
+        gsap.fromTo('.box1', {
+            y: -1000,
+            scale: 0.3
+        },{y:0, scale:1})
+        gsap.fromTo('.box2', {
+            y: -1000,scale:0.3
+        },{y:0,scale:1})
+    },{scope: containerRef.current})
+
     return (
-        <div className='h-screen grid grid-rows-1 grid-cols-1 md:grid-cols-2 
+        <div ref={containerRef} className='h-screen grid grid-rows-1 grid-cols-1 md:grid-cols-2 
         items-start sm:items-center justify-center
-          p-3 sm:p-12 md:p-20 relative '
+          p-5 sm:p-12 md:p-20 relative '
         >
-            <div className={` bg-cover bg-no-repeat bg-center
-                 w-full h-full relative hidden md:flex flex-col items-center justify-center`
-            }
+            <div className={`box1 bg-cover bg-no-repeat bg-center
+                 w-full h-full relative hidden md:flex flex-col items-center justify-center`}
                 style={{
                     backgroundImage: `url(${LoginBanner})`
                 }}
             >
-                <p className='text-xl first-letter:capitalize text-white font-bold'
+                <p className='text-2xl first-letter:capitalize text-sky-600 font-bold'
                 >
                     nice to see you again
                 </p>
                 <h2 className='text-3xl sm:text-4xl md:text-6xl uppercase font-bold
-                  after:w-[60px] after:block after:bg-slate-50
-                 after:h-2 after:rounded-sm 
+                  after:w-[90px] after:block after:bg-slate-50
+                 after:h-2 after:rounded-lg 
                  after:left-auto after:right-auto after:text-center
-                 after:mx-auto '>welcome back</h2>
+                 after:mx-auto after:-mt-1'>welcome back</h2>
                 {/* <img src={LoginBanner}
                     className='w-full h-full absolute -z-10'
                     alt=''
                 /> */}
             </div>
-            <Box className={`${(isDark) ?
+            <Box className={`box2 ${(isDark) ?
                 "text-white bg-gray-800" :
                 "text-gray-100 bg-white shadow-gray-200"} shadow-2xl
-                w-full h-full 
+                w-full h-fit md:h-full p-10 md:p-0
                 flex items-center justify-center
                   `
             } border={'2'}
@@ -113,8 +126,8 @@ const Login = () => {
                  w-full min-w-full gap-10'
                     onSubmit={submitLogin}
                 >
-                    <h3 className="text-xl sm:text-2xl md:text-3xl text-blue-600
-                          capitalize"
+                    <h3 className="text-xl sm:text-3xl md:text-4xl text-blue-600
+                          capitalize font-semibold"
                     >login now
                     </h3>
                     {error ?
@@ -162,18 +175,18 @@ const Login = () => {
                         <input type={'checkbox'} className="password-toggle" id='password-toggle'
                             onChange={handlePasswordShow} />
                     </Box>
-                    <Box color={colors.grey[100]} className='flex flex-row flex-wrap items-center gap-5 mb-4 '>
-                        <label className='text-xl font-light ' htmlFor='persist'>Trust this device</label>
+                    <Box color={colors.grey[100]} className='flex flex-row flex-wrap items-center gap-2 mb-4 '>
                         <input type={'checkbox'} id="persist" className="persist-field"
                             // value={persist === true ? 'on' : 'off'}
                             checked={persist} defaultValue={persist}
                             onChange={changePersist}
                         />
+                        <label className='text-xl font-light ' htmlFor='persist'>Trust this device</label>
 
                     </Box>
 
                     <button disabled={isLoading} type='submit'
-                        className='p-3 min-w-[300px] bg-blue-400 rounded-md
+                        className='p-3 w-[90%] sm:min-w-[300px] sm:max-w-lg bg-blue-400 rounded-md
                                text-xl sm:text-3xl text-white font-semibold '>
                         {isLoading ? <CircularProgress /> : 'Login'}
                     </button>

@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, {  useRef, useState } from 'react';
 import { useGetTodosQuery, } from '../../../features/Todo/todoApiSlice';
 import Paper from '@mui/material/Paper'
 import Table from '@mui/material/Table'
@@ -21,7 +21,8 @@ import { useTheme } from '@mui/material/styles';
 import Todo from './Todo';
 import { useGetEmployeesQuery } from '../../../features/Employee/EmployeeApiSlice';
 import PaginateComp from '../../../components/Pagination/Pagination';
-
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
 
 const TodosList = () => {
 
@@ -40,10 +41,19 @@ const TodosList = () => {
     const { data: employeeData,
     } = useGetEmployeesQuery();
 
+      const containerRef = useRef(null)
+  useGSAP(() => {
+    gsap.fromTo('.todoInforWrapper', {
+      y: -1000,
+      scale: 0.3
+    }, { y: 0, scale: 1 })
+
+  }, { scope: containerRef.current })
     
     // console.log(data);
     return (
-        <Container sx={{}}>
+        <Container sx={{}}
+        ref={containerRef}>
 
             <h3 className={`${(isDark) ? 'text-white' : 'text-gray-800'} px-3 text-start min-w-full w-full 
             my-4 mt-8
@@ -52,7 +62,7 @@ const TodosList = () => {
                 Todos Page
             </h3>
             {todoLoading ? <Loaddder loadingText={'loading todos'}/> :
-                <>
+                <div className='todoInforWrapper'>
                      <div className={`my-3 rounded-lg ml-1 `}>
                                 <div className='flex justify-end'>
                                    <button
@@ -163,7 +173,7 @@ const TodosList = () => {
                                     error?.data?.message }</p>
                             </div>
                     }
-                </>
+                </div>
             }
 
         </Container>

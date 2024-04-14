@@ -21,6 +21,7 @@ import { useDeleteTodoMutation } from '../../../features/Todo/todoApiSlice'
 import CollabsTable from './CollabsTable'
 import { Link } from 'react-router-dom'
 import EditDialog from './EditDialog'
+import  Tooltip  from '@mui/material/Tooltip'
 
 
 
@@ -87,14 +88,19 @@ export default function TodoRow({ todo, employees, refetchTodo }) {
                 </TableCell>
                
                 <TableCell align='left'>
+                     <Tooltip title={todo?.isComplete? "completed todo" : 'pending todo'}>
                     <span
                     // ${todo?.isComplete ? 'bg-green-400' : 'bg-inherit'}
                         className={`p-[3px] text-[15px] rounded-md
                     `}>
-                        {todo?.isComplete ? <CompleteIcon 
-                            sx={{color:'lightgreen',transform:'scale(1.4)'}}
-                        /> : <PendingIcon sx={{transform:'scale(1.4)'}} />}
+                        {todo?.isComplete ?
+                                <CompleteIcon 
+                            sx={{color:'lightgreen',transform:'scale(1.4)',}}
+                            /> :
+                                <PendingIcon sx={{ transform: 'scale(1.4)' }} />
+                        }
                     </span>
+                            </Tooltip>
                 </TableCell>
                  <TableCell align='center' colSpan={7}>
                      <Button  color='success' variant='outlined'

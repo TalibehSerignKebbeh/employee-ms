@@ -33,7 +33,7 @@ const EditModal = ({ showEditModal, setshowEditModal,
      const { handleSubmit, register,
          getValues, reset: resetForm,
         setError, 
-        formState: { errors,defaultValues, }
+        formState: { errors,defaultValues, isDirty}
     } = useForm({
         resolver: yupResolver(UpdateEmployeeSchema),
         defaultValues: employee,
@@ -149,7 +149,8 @@ const EditModal = ({ showEditModal, setshowEditModal,
                         getValues={getValues}
                         register={register}
                         handleReset={handleReset}
-                        isDark={isDark}
+                            isDark={isDark}
+                            isDirty={isDirty}
                     />}
                     </Container>
                      
